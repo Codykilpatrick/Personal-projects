@@ -1,4 +1,4 @@
-
+#A tool to take the long mathwork out of hunting submarines
 import math
 
 ##Create range calculator using BR and relative speed across LOS
