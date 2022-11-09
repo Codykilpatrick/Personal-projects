@@ -1,11 +1,11 @@
-from cs50 import get_float
+
 import math
 
 ##Create range calculator using BR and relative speed across LOS
 def bearing_rate():
-    b1 = get_float("What is B1? ")
-    b2 = get_float("What is B2? ")
-    mark = get_float("Leg length? ")
+    b1 = float(input("What is B1? "))
+    b2 = float(input("What is B2? "))
+    mark = float(input("Leg length? "))
     br = (b1 - b2) / mark
     print(br)
 
