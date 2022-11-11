@@ -19,7 +19,7 @@ while True:
 ###pulls just Amarr, Drops useless columns, writes to CSV
 master_domain_df = master_domain_df[master_domain_df.system_id == 30002187]
 master_domain_df = master_domain_df.drop(['duration', 'issued', 'min_volume', 'order_id', 'range', 'volume_total', 'location_id'], axis=1)
-master_domain_df.to_csv("C:/Users/Purpl/Desktop/Code projects/Eve online/market data/domain_daily_data.csv", index=False)
+master_domain_df.to_csv("C:/Users/Purpl/github/Personal-projects/eve-online/market data/domain_daily_data.csv", index=False)
 
 ### About 302 pages in about 5 minutes
 theforge = 'https://esi.evetech.net/latest/markets/10000002/orders/?datasource=tranquility&order_type=buy&page=1'
@@ -40,7 +40,7 @@ while True:
 master_theforge_df = master_theforge_df[master_theforge_df.system_id == 30000142]
 master_theforge_df = master_theforge_df.drop(['duration', 'issued', 'min_volume', 'order_id', 'range', 'volume_total', 'location_id', 'is_buy_order', 'system_id', 'volume_remain'], axis=1)
 master_theforge_df.rename(columns={'price' : 'jita_price'}, inplace=True)
-master_theforge_df.to_csv("C:/Users/Purpl/Desktop/Code projects/Eve online/market data/theforge_daily_data.csv", index=False)
+master_theforge_df.to_csv("C:/Users/Purpl/github/Personal-projects/eve-online/market data/theforge_daily_data.csv", index=False)
 
 ### About 96 pages in about 2 minutes
 sinqlaison = 'https://esi.evetech.net/latest/markets/10000032/orders/?datasource=tranquility&order_type=sell&page=1'
@@ -60,7 +60,7 @@ while True:
 ###pulls just Rens, Drops useless columns, writes to CSV
 master_sinqlaison_df = master_sinqlaison_df[master_sinqlaison_df.system_id == 30002659]
 master_sinqlaison_df = master_sinqlaison_df.drop(['duration', 'issued', 'min_volume', 'order_id', 'range', 'volume_total', 'location_id'], axis=1)
-master_sinqlaison_df.to_csv("C:/Users/Purpl/Desktop/Code projects/Eve online/market data/sinqlaison_daily_data.csv", index=False)
+master_sinqlaison_df.to_csv("C:/Users/Purpl/github/Personal-projects/eve-online/market data/sinqlaison_daily_data.csv", index=False)
 
 ### About 96 pages in about 2 minutes
 metropolis = 'https://esi.evetech.net/latest/markets/10000042/orders/?datasource=tranquility&order_type=sell&page=1'
@@ -80,7 +80,7 @@ while True:
 ###pulls just Rens, Drops useless columns, writes to CSV
 master_metropolis_df = master_metropolis_df[master_metropolis_df.system_id == 30002053]
 master_metropolis_df = master_metropolis_df.drop(['duration', 'issued', 'min_volume', 'order_id', 'range', 'volume_total', 'location_id'], axis=1)
-master_metropolis_df.to_csv("C:/Users/Purpl/Desktop/Code projects/Eve online/market data/metropolis_daily_data.csv", index=False)
+master_metropolis_df.to_csv("C:/Users/Purpl/github/Personal-projects/eve-online/market data/metropolis_daily_data.csv", index=False)
 
 ### About 65 pages in about 2 minutes
 heimatar = 'https://esi.evetech.net/latest/markets/10000030/orders/?datasource=tranquility&order_type=sell&page=1'
@@ -100,4 +100,4 @@ while True:
 ###pulls just Rens, Drops useless columns, writes to CSV
 master_heimatar_df = master_heimatar_df[master_heimatar_df.system_id == 30002510]
 master_heimatar_df = master_heimatar_df.drop(['duration', 'issued', 'min_volume', 'order_id', 'range', 'volume_total', 'location_id'], axis=1)
-master_heimatar_df.to_csv("C:/Users/Purpl/Desktop/Code projects/Eve online/market data/heimatar_daily_data.csv", index=False)
+master_heimatar_df.to_csv("C:/Users/Purpl/github/Personal-projects/eve-online/market data/heimatar_daily_data.csv", index=False)
