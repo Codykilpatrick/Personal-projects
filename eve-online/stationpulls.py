@@ -64,19 +64,19 @@ for station in station_ids:
         amarr_df = master_df[master_df.system_id == 30002187]
         amarr_df = amarr_df.drop(['is_buy_order', 'system_id', 'primaryIndex', 'subIndex', 'type_id', 'groupName', 'categoryID', 'groupID'], axis=1)
         print('Amarr sorted by formula: ')
-        print(amarr_df.sort_values('formula', ascending=False).head(30))
+        print(amarr_df.sort_values('formula', ascending=False).head(100))
     elif station == 30002510:
         rens_df = master_df[master_df.system_id == 30002510]
         rens_df = rens_df.drop(['is_buy_order', 'system_id', 'primaryIndex', 'subIndex', 'type_id', 'groupName', 'categoryID', 'groupID'], axis=1)
         print('Rens sorted by formula: ')
-        print(rens_df.sort_values('formula', ascending=False).head(30))
+        print(rens_df.sort_values('formula', ascending=False).head(100))
     elif station == 30002659:
         dodixie_df = master_df[master_df.system_id == 30002659]
         dodixie_df = dodixie_df.drop(['is_buy_order', 'system_id', 'primaryIndex', 'subIndex', 'type_id', 'groupName', 'categoryID', 'groupID'], axis=1)
         print('Dodixie sorted by formula: ')
-        print(dodixie_df.sort_values('formula', ascending=False).head(30))
+        print(dodixie_df.sort_values('formula', ascending=False).head(100))
     elif station == 30002053:
         hek_df = master_df[master_df.system_id == 30002053]
         hek_df = hek_df.drop(['is_buy_order', 'system_id', 'primaryIndex', 'subIndex', 'type_id', 'groupName', 'categoryID', 'groupID'], axis=1)
         print('Hek sorted by formula: ')
-        print(hek_df.sort_values('formula', ascending=False).head(30))
+        print(hek_df.sort_values('formula', ascending=False).head(100))
