@@ -6,13 +6,13 @@ import pandas as pd
 #             './market-data/volume data/market-history-2022-10-31.csv',
 #             './market-data/volume data/market-history-2022-10-30.csv',
 #             './market-data/volume data/market-history-2022-11-03.csv']
-stations = ['./market-data/domain_daily_data.csv',
-            './market-data/sinqlaison_daily_data.csv',
-            './market-data/metropolis_daily_data.csv',
-            './market-data/heimatar_daily_data.csv']
-index_df = pd.read_csv('./market-data/index_baskets.csv')
-regions = ('./market-data/volume data/region-to-system.csv')
-jita_df = pd.read_csv('./market-data/theforge_daily_data.csv')
+stations = ['./market-data/daily-data/domain_daily_data.csv',
+            './market-data/daily-data/sinqlaison_daily_data.csv',
+            './market-data/daily-data/metropolis_daily_data.csv',
+            './market-data/daily-data/heimatar_daily_data.csv']
+index_df = pd.read_csv('./helper-files/index_baskets.csv')
+regions = ('./helper-files/region-to-system.csv')
+jita_df = pd.read_csv('./market-data/daily-data/theforge_daily_data.csv')
 jita_df = jita_df.groupby(['type_id'], as_index=False).max()
 master_df = pd.DataFrame()
 master_volume_df = pd.DataFrame()
@@ -62,7 +62,7 @@ master_df['buysell_percentage'] = abs(master_df['jita_price'] - master_df['price
 ## master_df['formula'] = abs((master_df['buysell_percentage'] / master_df['volume_remain']) * master_df['volume_history'])
 master_df['formula'] = abs((master_df['buysell_percentage'] / master_df['volume_remain']))
 master_df = master_df[master_df.buysell_percentage < 2000]
-master_df.to_csv("./market-data/master_daily_data.csv", index=False)
+master_df.to_csv("./market-data/daily-data/master_daily_data.csv", index=False)
 
 station_ids = [30002187, 30002510, 30002659, 30002053]
 for station in station_ids:
