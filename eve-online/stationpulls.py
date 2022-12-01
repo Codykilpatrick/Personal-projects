@@ -1,18 +1,18 @@
 import pandas as pd
 
 ###For days 30OCT-03NOV
-volumes = ['C:/Users/Purpl/github/Personal-projects/eve-online/market data/volume data/market-history-2022-11-02.csv',
-            'C:/Users/Purpl/github/Personal-projects/eve-online/market data/volume data/market-history-2022-11-01.csv',
-            'C:/Users/Purpl/github/Personal-projects/eve-online/market data/volume data/market-history-2022-10-31.csv',
-            'C:/Users/Purpl/github/Personal-projects/eve-online/market data/volume data/market-history-2022-10-30.csv',
-            'C:/Users/Purpl/github/Personal-projects/eve-online/market data/volume data/market-history-2022-11-03.csv']
-stations = ['C:/Users/Purpl/github/Personal-projects/eve-online/market data/domain_daily_data.csv',
-            'C:/Users/Purpl/github/Personal-projects/eve-online/market data/sinqlaison_daily_data.csv',
-            'C:/Users/Purpl/github/Personal-projects/eve-online/market data/metropolis_daily_data.csv',
-            'C:/Users/Purpl/github/Personal-projects/eve-online/market data/heimatar_daily_data.csv']
-index_df = pd.read_csv('C:/Users/Purpl/github/Personal-projects/eve-online/market data/index_baskets.csv')
-regions = ('C:/Users/Purpl/github/Personal-projects/eve-online/market data/volume data/region-to-system.csv')
-jita_df = pd.read_csv('C:/Users/Purpl/github/Personal-projects/eve-online/market data/theforge_daily_data.csv')
+volumes = ['./market-data/volume data/market-history-2022-11-02.csv',
+            './market-data/volume data/market-history-2022-11-01.csv',
+            './market-data/volume data/market-history-2022-10-31.csv',
+            './market-data/volume data/market-history-2022-10-30.csv',
+            './market-data/volume data/market-history-2022-11-03.csv']
+stations = ['./market-data/domain_daily_data.csv',
+            './market-data/sinqlaison_daily_data.csv',
+            './market-data/metropolis_daily_data.csv',
+            './market-data/heimatar_daily_data.csv']
+index_df = pd.read_csv('./market-data/index_baskets.csv')
+regions = ('./market-data/volume data/region-to-system.csv')
+jita_df = pd.read_csv('./market-data/theforge_daily_data.csv')
 jita_df = jita_df.groupby(['type_id'], as_index=False).max()
 master_df = pd.DataFrame()
 master_volume_df = pd.DataFrame()
@@ -56,7 +56,7 @@ master_df['buysell_difference'] = abs(master_df['price'] - master_df['jita_price
 master_df['buysell_percentage'] = abs(master_df['jita_price'] - master_df['price']) / master_df['jita_price'] * 100
 master_df['formula'] = abs((master_df['buysell_percentage'] / master_df['volume_remain']) * master_df['volume_history'])
 master_df = master_df[master_df.buysell_percentage < 2000]
-master_df.to_csv("C:/Users/Purpl/Desktop/Code projects/Eve online/market data/master_daily_data.csv", index=False)
+master_df.to_csv("./market-data/master_daily_data.csv", index=False)
 
 station_ids = [30002187, 30002510, 30002659, 30002053]
 for station in station_ids:
