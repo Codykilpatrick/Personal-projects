@@ -1,6 +1,6 @@
 import pandas as pd
 
-# *Removed until CCP fixes market History API
+# *Feature removed until CCP fixes market history API
 # volumes = ['./market-data/volume data/market-history-2022-11-02.csv',
 #             './market-data/volume data/market-history-2022-11-01.csv',
 #             './market-data/volume data/market-history-2022-10-31.csv',
@@ -47,7 +47,7 @@ for station in stations:
     master_volume_df = pd.concat([master_volume_df, station_volume_df], ignore_index=True, axis=0)
 
 master_volume_df = master_volume_df.drop(['is_buy_order', 'price'], axis=1)
-#* Removed until CCP fixed API
+# *Feature removed until CCP fixes market history API
 # master_df = master_df.drop(['volume_remain'], axis=1)
 # master_df = pd.merge(master_df, master_volume_df, on=['type_id', 'system_id'], how='inner')
 # master_df = pd.merge(master_df, master_volume_summary_df, on=['system_id', 'type_id'], how='inner')
@@ -57,7 +57,7 @@ master_df = master_df[master_df['groupID'].isin([1996, 376, 372, 374, 377, 1041,
 master_df['buysell_difference'] = abs(master_df['price'] - master_df['jita_price'])
 master_df['buysell_percentage'] = abs(master_df['jita_price'] - master_df['price']) / master_df['jita_price'] * 100
 
-#* Removed until CCP fixes API
+# *Feature removed until CCP fixes market history API
 # The formula with volume history:
 ## master_df['formula'] = abs((master_df['buysell_percentage'] / master_df['volume_remain']) * master_df['volume_history'])
 master_df['formula'] = abs((master_df['buysell_percentage'] / master_df['volume_remain']))
