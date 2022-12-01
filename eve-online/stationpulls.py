@@ -68,21 +68,32 @@ station_ids = [30002187, 30002510, 30002659, 30002053]
 for station in station_ids:
     if station == 30002187:
         amarr_df = master_df[master_df.system_id == 30002187]
-        amarr_df = amarr_df.drop(['is_buy_order', 'system_id', 'primaryIndex', 'subIndex', 'type_id', 'groupName', 'categoryID', 'groupID'], axis=1)
+        amarr_df = amarr_df.drop(['is_buy_order', 'primaryIndex', 'subIndex', 'type_id', 'groupName', 'categoryID', 'groupID'], axis=1)
         print('Amarr sorted by formula: ')
         print(amarr_df.sort_values('formula', ascending=False).head(100))
+        final_amarr_df = (amarr_df.sort_values('formula', ascending=False).head(100))
     elif station == 30002510:
         rens_df = master_df[master_df.system_id == 30002510]
-        rens_df = rens_df.drop(['is_buy_order', 'system_id', 'primaryIndex', 'subIndex', 'type_id', 'groupName', 'categoryID', 'groupID'], axis=1)
+        rens_df = rens_df.drop(['is_buy_order', 'primaryIndex', 'subIndex', 'type_id', 'groupName', 'categoryID', 'groupID'], axis=1)
         print('Rens sorted by formula: ')
         print(rens_df.sort_values('formula', ascending=False).head(100))
+        final_rens_df = (rens_df.sort_values('formula', ascending=False).head(100))
     elif station == 30002659:
         dodixie_df = master_df[master_df.system_id == 30002659]
-        dodixie_df = dodixie_df.drop(['is_buy_order', 'system_id', 'primaryIndex', 'subIndex', 'type_id', 'groupName', 'categoryID', 'groupID'], axis=1)
+        dodixie_df = dodixie_df.drop(['is_buy_order', 'primaryIndex', 'subIndex', 'type_id', 'groupName', 'categoryID', 'groupID'], axis=1)
         print('Dodixie sorted by formula: ')
         print(dodixie_df.sort_values('formula', ascending=False).head(100))
+        final_dodixie_df = (dodixie_df.sort_values('formula', ascending=False).head(100))
     elif station == 30002053:
         hek_df = master_df[master_df.system_id == 30002053]
-        hek_df = hek_df.drop(['is_buy_order', 'system_id', 'primaryIndex', 'subIndex', 'type_id', 'groupName', 'categoryID', 'groupID'], axis=1)
+        hek_df = hek_df.drop(['is_buy_order', 'primaryIndex', 'subIndex', 'type_id', 'groupName', 'categoryID', 'groupID'], axis=1)
         print('Hek sorted by formula: ')
         print(hek_df.sort_values('formula', ascending=False).head(100))
+        final_hek_df = (hek_df.sort_values('formula', ascending=False).head(100))
+  
+
+#Writes the desired outcomes to individual CSV's
+final_amarr_df.to_csv("./market-data/final-info/final_amarr_data.csv", index=False)
+final_dodixie_df.to_csv("./market-data/final-info/final_dodixie_data.csv", index=False)
+final_rens_df.to_csv("./market-data/final-info/final_rens_data.csv", index=False)
+final_hek_df.to_csv("./market-data/final-info/final_hek_data.csv", index=False)
